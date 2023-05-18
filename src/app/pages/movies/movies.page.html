@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Movie App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-list>
+  <ion-item button *ngFor="let item of movies">
+    <ion-avatar slot="start">
+      <img [src]="imageBaseUrl + '/w92' + item.poster_path">
+    </ion-avatar>
+    <ion-label> {{ item.title }} 
+      <p> {{ item.release_date | date: 'y' }} </p>
+    </ion-label>
+
+    <ion-badge slot="end"> {{ item.vote_average }}</ion-badge>
+  </ion-item>
+ </ion-list>
+
+ <!--<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+  <ion-infinite-scroll-content 
+  loadingSpinner="bubbles" 
+  loadingText="Loading more data..."> </ion-infinite-scroll-content>
+</ion-infinite-scroll> -->
+
+<!--<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Cargando más datos..."
+  ></ion-infinite-scroll-content>
+</ion-infinite-scroll>-->
+
+</ion-content>
